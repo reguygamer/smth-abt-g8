@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+void greetings(){
+    cout<<"Welcome to C++ Programming!";
+    cout<<"\nThis program finds the sum of two integers:\n\n";
+}
+
+int findthesum(int a, int b){
+    int sum;
+    sum = a + b;
+    return sum;
+}
+
+int accept(string msg){
+    int x;
+    cout<<msg;
+    cin>>x;
+    return x;
+}
+
+void message(int x, int y){
+    cout<<"The sum of "<<x<<" and "<<y<<" is "<<findthesum(x,y);    
+}
+
+int main(){
+    int x,y;
+    
+    greetings();
+    
+    x = accept("Enter value for a: ");
+    y = accept("Enter value for b: ");    
+
+    message(x,y);
+
+    return 0;
+}
+
