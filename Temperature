@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+    float FtoC(float F){
+        float C = (F - 32) * 5/9;
+        return C;
+    }
+    
+    float CtoF(float C){
+        float F = (C*1.8) + 32;
+        return F;
+    }
+    
+    void description(){
+        char ans;
+        cout << "Program description:\n";
+        cout << "\n\tThis program converts Farenheit to Celsius and Celsius to Farenheit\n\n";
+    }
+    
+    void programmed_by(){
+        system("clear");
+        cout << "Programmed by: \n";
+        cout << "\nKelvin Adonai Dirige";
+        cout << "\n8 - Rosal";
+        cout << "\nApril 24, 2023";
+        cout << "\n\nThank you!!";
+    }
+    
+    char response(string msg){
+        char ans;
+        cout << msg;
+        cin >> ans;
+        return ans;
+    }
+    
+    void fahrenheitcelsius(){
+    float fah;
+    cout<<"Enter value for farenheit: ";
+    cin>>fah;
+    cout<<"Celsius equivalent is: "<<FtoC(fah);
+    }
+    
+    void celsiusfahrenheit(){
+    float cel;
+    cout<<"Enter value for celsius: ";
+    cin>>cel;
+    cout<<"Celsius equivalent is: "<<CtoF(cel);
+    }
+
+    char selectionmenu(){
+    char ans;
+    system("clear");
+    cout<<"- Convert -\n";
+    cout<<"\n[A] Fahrenheit to Celsius:";
+    cout<<"\n[B] Celsius to Fahrenheit\n";
+    cout<<"\nEnter your choice: ";
+    cin>>ans;
+    cout<<"\n";
+    return toupper(ans);
+    }
+    
+    int main()
+    {
+    
+    char ans;
+
+    //description
+    description();
+    
+    if(response("\nWould you like to continue [y/n]? ") =='n') goto Quit;
+    
+    
+    
+    //selection Menu
+    Again:
+    switch(selectionmenu()){
+        case 'A':
+        fahrenheitcelsius();
+            break;
+        case 'B':
+        celsiusfahrenheit();
+            break;
+    }
+    
+    if(response("\nTry again? [y/n]") =='Y') goto Again;
+    
+    Quit:
+    programmed_by();
+
+    
+    return 0;
+}
+
+
+
+
