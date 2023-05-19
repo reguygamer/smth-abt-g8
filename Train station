@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+int total_station(int embark, int disembark){
+    
+    return abs(embark - disembark) + 1;
+    
+}
+
+float fare(int embark, int disembark){
+    float fare;
+    if(total_station(embark, disembark)>20){
+    return ((total_station(embark, disembark) - 20) * 1.25) + 30;
+    }else{
+        return 30;
+    }
+
+}
+
+string direction(int embark, int disembark){
+    if(embark<disembark){
+        return "North to South";
+    }else{
+        return "South to North";
+    }
+}
+
+void output(int embark, int disembark){
+    cout<<"      Total Station Passed: "<<total_station(embark, disembark);
+    cout<<"\n                 Direction: "<<direction(embark, disembark);
+    cout<<"\n                      Fare: "<<fare(embark, disembark);
+}
+
+int accept(string msg){
+    int x;
+    cout<<msg;
+    cin>>x;
+    return x;
+}
+
+void programmed_by(){
+    system("clear");
+    cout << "Programmed by: \n";
+    cout << "\nDirige, Kelvin Adonai F.";
+    cout << "\n8 - Rosal";
+    cout << "\nMay 2, 2023";
+    cout << "\n\nThank you!!";
+}
+
+char response(string msg){
+    char ans;
+    cout << msg;
+    cin >> ans;
+    return toupper(ans);
+}
+
+void description(){
+    cout << "Program description:\n";
+    cout<<"\n\tThis program computes Train Fare and indicates direction of travel\nbased on the embarking and disembarking station of the passenger.\n";
+}
+
+int main()
+{
+    //initialization
+    int embark,disembark;
+
+    
+    //program description
+    description();
+    
+    if(response("\nWould you like to continue? [y/n] ") == 'N') goto Quit;
+    
+    
+    //main program
+    Again:
+    system("clear");
+    embark = accept("Enter Embarking Station: ");
+    disembark = accept("Enter Disembarking Station: ");
+    //process
+    
+    
+    //output
+    output(embark, disembark);
+    
+    //try again
+    if(response("\n\nTry again? [y/n] ") == 'Y') goto Again;
+    
+    Quit:
+    programmed_by();
+
+    return 0;
+}
